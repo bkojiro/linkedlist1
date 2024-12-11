@@ -11,13 +11,18 @@ void deleteLast(Node* &head);
 
 int main() {
   Node* head = NULL;
+  //add student "bob"
   add(head, new Student("bob"));
   print(head, head);
+  //add student "joe"
   add(head, new Student("joe"));
   print(head, head);
+  //add student "billy"
   add(head, new Student("billy"));
   print(head, head);
+  //delete the last student
   deleteLast(head);
+  print(head, head);
   return 0;
 }
 
@@ -38,7 +43,7 @@ void deleteLast (Node* &head) {
   while (current->getNext()->getNext() != NULL) {
     current = current->getNext();
   }
-  ~(current->getNext());
+  current->getNext()->~Node();
   current->setNext(NULL);
 }
 
